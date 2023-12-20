@@ -4,30 +4,32 @@
 </div>
 
 <ng-template #table>
-  <table class="table table-hover">
+  <table datatable class="table table-striped">
     <thead>
       <tr>
         <th>#</th>
-        <th>Icon</th>
         <th>Bandera</th>
         <th>Nombre</th>
-        <th>capital</th>
-        <th>Poblacion</th>
-        <th>Accion</th>
+        <th>Capital</th>
+        <th>Población</th>
+        <th>Timezone</th>
+        <th>Acción</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of countries; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.flag }}</td>
         <td>
           <img [src]="item.flags.svg" [alt]="item.name.common" width="35">
         </td>
         <td>{{ item.name.common }}</td>
         <td>{{ item.capital }}</td>
         <td>{{ item.population | number }}</td>
+        <td>{{ item.timezones[0] }}</td>
         <td>
-          <a [routerLink]="[ '/countries/by', item.cca3]">Ver mas</a>
+          <a [routerLink]="[ '/countries/by', item.cca3]">
+            <i class="uil uil-eye fs-4"></i>
+          </a>
         </td>
       </tr>
     </tbody>

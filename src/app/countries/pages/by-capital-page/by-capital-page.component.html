@@ -1,5 +1,5 @@
-<h2>Por Capital</h2>
-<hr>
+<h3><i class="uil uil-search"></i> Búsqueda por capital</h3>
+<hr />
 
 <div class="row">
   <div class="col">
@@ -7,18 +7,15 @@
     <shared-search-box
       placeHolder="Ingrese la capital para realizar la busqueda"
       [initialValue]="initialValue"
-      (onDebounce)="receiveSearchCapital($event)"
-      >
+      (onDebounce)="receiveSearchCapital($event)">
     </shared-search-box>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
-    <hr>
-    <shared-loading-spinner
-      *ngIf="isLoading"
-      textLoading="Buscando Capital">
+    <hr />
+    <shared-loading-spinner *ngIf="isLoading" textLoading="Buscando Capital">
     </shared-loading-spinner>
 
     <countries-country-table [countries]="countries"></countries-country-table>
