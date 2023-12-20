@@ -1,37 +1,41 @@
-<div *ngIf="countries.length === 0; else table"
-  class="alert alert-warning text-center">
+<div
+  *ngIf="countries.length === 0; else table"
+  class="alert alert-warning text-center"
+>
   No se encontraron resultados.
 </div>
 
 <ng-template #table>
-  <table datatable class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Bandera</th>
-        <th>Nombre</th>
-        <th>Capital</th>
-        <th>Población</th>
-        <th>Timezone</th>
-        <th>Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of countries; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>
-          <img [src]="item.flags.svg" [alt]="item.name.common" width="35">
-        </td>
-        <td>{{ item.name.common }}</td>
-        <td>{{ item.capital }}</td>
-        <td>{{ item.population | number }}</td>
-        <td>{{ item.timezones[0] }}</td>
-        <td>
-          <a [routerLink]="[ '/countries/by', item.cca3]">
-            <i class="uil uil-eye fs-4"></i>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table datatable class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bandera</th>
+          <th>Nombre</th>
+          <th>Capital</th>
+          <th>Población</th>
+          <th>Timezone</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of countries; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <img [src]="item.flags.svg" [alt]="item.name.common" width="35" />
+          </td>
+          <td>{{ item.name.common }}</td>
+          <td>{{ item.capital }}</td>
+          <td>{{ item.population | number }}</td>
+          <td>{{ item.timezones[0] }}</td>
+          <td>
+            <a [routerLink]="['/countries/by', item.cca3]">
+              <i class="uil uil-eye fs-4"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ng-template>
